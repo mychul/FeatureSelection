@@ -13,3 +13,8 @@ class greedy:
             return False #no reduction found continue search
         else:
             return True #found reduction
+    def childCheck(self,state):
+        if state in self.explored:
+            return True
+        else:
+            return False
