@@ -3,6 +3,4 @@ class node:
         self.pool = []
         for x in range(value):
             self.pool.append(x)
-        self.state = (state)
-        
-    
+        self.state = state
