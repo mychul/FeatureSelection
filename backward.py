@@ -37,6 +37,7 @@ class backward(greedy):
                 self.frontier = (None)
                 if len(bestChild[1]) == 1:
                     print("Finished Search! The best feature subset is "+ str(self.cursor.state) +", which has an accuracy of " + str(self.cursor.acc))
+                    return
         return
         #spawns tuples of features that are the possible combinations based on the current state
         #unique to backward since we are removing one element from the full feature list
