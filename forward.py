@@ -14,5 +14,5 @@ class forward(greedy):
             #if not self.childCheck(self.cur_node.state):
                 #self.spawnChild(self.cur_node.state,)
         pass
-    def spawnChild(self,state,acc):
+    def spawnChild(self):
         pass
