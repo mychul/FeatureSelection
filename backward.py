@@ -26,9 +26,10 @@ class backward(greedy):
             #evaluates frontier finding best
             
             bestChild= self.eval.randoList(self.frontier) #(acc,state)
-            print("Best Feature set is " + str(bestChild[1]) + " with accuracy " + str(bestChild[0]))
+            print("Best Feature set is " + str(list(bestChild[1])) + " with accuracy " + str(bestChild[0]))
             #check for reduction
             self.accCheck(bestChild[0])
+            
             #if no reduction found
             if not self.flag:
                 #set cursor to bestchild
@@ -36,8 +37,12 @@ class backward(greedy):
                 self.cursor.acc = bestChild[0]
                 self.frontier = (None)
                 if len(bestChild[1]) == 1:
-                    print("Finished Search! The best feature subset is "+ str(self.cursor.state) +", which has an accuracy of " + str(self.cursor.acc))
+                    print("Finished Search due to end of expansion! The best feature subset is "+ str(list(self.cursor.state)) +", which has an accuracy of " + str(self.cursor.acc))
                     return
+            if self.flag() and len(bestChild[1]) == 1:
+                    print("Finished Search due to end of expansion! The best feature subset is "+ str(list(self.cursor.state)) +", which has an accuracy of " + str(self.cursor.acc))
+                    return
+                
         return
         #spawns tuples of features that are the possible combinations based on the current state
         #unique to backward since we are removing one element from the full feature list

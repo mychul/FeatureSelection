@@ -18,7 +18,7 @@ class greedy:
             return #no reduction found continue search
         else:
             print("Reduction Found")
-            print("Finished Search! The best feature subset is "+ str(self.cursor.state) +", which has an accuracy of " + str(self.cursor.acc))
+            print("Finished Search! The best feature subset is "+ str(list(self.cursor.state)) +", which has an accuracy of " + str(self.cursor.acc))
             self.flag =True
             return #found reduction
 
