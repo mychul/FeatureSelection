@@ -20,6 +20,8 @@ class backward(greedy):
             print("Reduction Found")
             print("Finished Search! The best feature subset is nothing which has an accuracy of " + str(self.current_max))
             return
+        else:
+            self.current_max = self.cursor.acc
         #loop until reduction in acc or we have reached a state of 1
         while(not self.flag or len(self.cursor.state) == 1):
             self.spawnChild()
@@ -37,9 +39,6 @@ class backward(greedy):
                 self.cursor.acc = bestChild[0]
                 self.frontier = (None)
                 if len(bestChild[1]) == 1:
-                    print("Finished Search due to end of expansion! The best feature subset is "+ str(list(self.cursor.state)) +", which has an accuracy of " + str(self.cursor.acc))
-                    return
-            if self.flag() and len(bestChild[1]) == 1:
                     print("Finished Search due to end of expansion! The best feature subset is "+ str(list(self.cursor.state)) +", which has an accuracy of " + str(self.cursor.acc))
                     return
                 
