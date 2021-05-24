@@ -33,7 +33,7 @@ class backward(greedy):
             if not self.flag:
                 #set cursor to bestchild
                 self.cursor = node(sorted(bestChild[1]),bestChild[1])
-                self.acc = bestChild[0]
+                self.cursor.acc = bestChild[0]
                 self.frontier = (None)
                 if len(bestChild[1]) == 1:
                     print("Finished Search! The best feature subset is "+ str(self.cursor.state) +", which has an accuracy of " + str(self.cursor.acc))
