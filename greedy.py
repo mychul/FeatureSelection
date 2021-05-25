@@ -5,7 +5,7 @@ import itertools
 class greedy:
     def __init__(self,node):
         self.cursor=node
-        self.frontier = {None}
+        self.frontier = set()
         self.explored = {}
         self.current_max = 0
         self.flag=False
