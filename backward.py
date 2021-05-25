@@ -35,7 +35,7 @@ class backward(greedy):
             #if no reduction found
             if not self.flag:
                 #set cursor to bestchild
-                self.cursor = node(sorted(bestChild[1]),bestChild[1])
+                self.cursor = node(sorted(bestChild[1]),bestChild[1],0)
                 self.cursor.acc = bestChild[0]
                 self.frontier = (None)
                 if len(bestChild[1]) == 1:
