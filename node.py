@@ -7,4 +7,3 @@ class node:
         self.state = state
         #int of the nodes accuracy
         self.acc=0
-    

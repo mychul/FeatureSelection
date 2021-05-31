@@ -16,5 +16,3 @@ class Classifier:
         pass
     def Test(self):
         pass
-
-
