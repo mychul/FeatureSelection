@@ -1,16 +1,18 @@
 class Classifier:
     def __init__(self):
-        pass
-    def Train(self):
-        with open(r"Part_2/cs_170_small80.txt") as datafile:
+        self.book = []
+    
+    def Train(self): #TODO: filename/type to choose from
+        with open(r"Part_2/cs_170_small80.txt") as datafile: #
             dataset_lines = datafile.readlines()
             for line in dataset_lines:
                 line = line.strip()
                 class_of_data = line.split("  ", 1)
-                print(class_of_data[0])
+                #print(self.class_of_data[0])
                 features = class_of_data[1].split("  ")
-                print(features)
-                #exit(0)
+                #TODO: normalize the data here
+                #print(self.features)
+                self.book.append((class_of_data[0],features))
         pass
     def Test(self):
         pass
