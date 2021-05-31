@@ -13,7 +13,8 @@ class Validator:
                 if x == y: 
                     continue
                 else:
-                    if self.classifier.Test() == x[0]: #inputs: feature_subset, x
+                    # TODO: inputs for Test: feature_subset, x
+                    if self.classifier.Test() == x[0]: 
                         self.counter = self.counter + 1
         return self.counter/len(classifier.book)
 
