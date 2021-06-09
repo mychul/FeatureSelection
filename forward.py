@@ -7,7 +7,7 @@ class forward(greedy):
         #set state to pool because backwards
         self.cursor.state=()
         #give this node an acc
-        self.cursor.acc= 1
+        self.cursor.acc= initial
        
         
         

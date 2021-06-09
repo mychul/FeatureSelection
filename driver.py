@@ -15,7 +15,7 @@ print("(1) - Forward Selection\n(2) - Backward Elimination\n")
 algoChoice = input("Choice: ")
 algoChoice = int(algoChoice)
 #algoChoice = 1 #debug purposes
-initial_acc =  1 #random.randint(0,100)
+initial_acc = random.randint(0,100)
 print("Using no features and random evaluation, accuracy is " + str(initial_acc))
 if algoChoice == 1:
     #forward selection
