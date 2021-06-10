@@ -4,6 +4,7 @@ from statistics import *
 class Classifier:
     def __init__(self):
         self.dataset = []
+        self.book = []
     
     def Train(self): #TODO: filename/type to choose from
         with open(r"Part_2/cs_170_small80.txt") as datafile: #
@@ -50,7 +51,7 @@ class Classifier:
                 #self.book.append(normedfeatures)
         t_dataset = transpose(self.dataset)
         t_dataset.pop(0)
-        self.dataset = normalize(transpose)
+        self.dataset = normalize(t_dataset)
         print("")
     def Test(self,row,subset_pos):
         current_closest= 9999999999
@@ -82,12 +83,12 @@ def normalize(transposed):
     for x in transposed:
         avg = mean(x)
         std = stdev(x)
-        if flag:
-            normedData.append(x)
-            flag=False
-        else:
-            for y in x:
-                normedList.append((y - avg)/std)
+        #if flag:
+        normedData.append(x)
+        #    flag=False
+        #else:
+        for y in x:
+            normedList.append((y - avg)/std)
         normedData.append(normedList)
         normedList.clear()
 
