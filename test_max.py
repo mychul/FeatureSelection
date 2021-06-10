@@ -16,6 +16,9 @@ from Part_2.validation import *
 subset=(3,5,)
 classify = Classifier()
 #classify.Train()
-valid = Validator(classify)
-print(valid.validate(subset))
+classify.Train2()
+for x in classify.book:
+    print(x)
+#valid = Validator(classify)
+#print(valid.validate(subset))
 #print(classify.Test(4,(2,4,5,9)))
