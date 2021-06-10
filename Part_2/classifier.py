@@ -1,5 +1,6 @@
 import math
 import re
+import copy
 from statistics import *
 class Classifier:
     def __init__(self):
@@ -36,11 +37,11 @@ class Classifier:
                 #tmp_url = re.sub(r'(\#)+','', tmp_url)
                 line = re.sub(r'(\ \ )+',',',line)
                 line = re.sub(r'(\ \-)+',',-',line)
-                features = line.split(",")
-                float_features = []
-                for x in features: 
-                    float_features.append(float(x))
-                self.dataset.append(float_features)
+                splitData = line.split(",")
+                floatData = []
+                for x in splitData: 
+                    floatData.append(float(x))
+                self.dataset.append(floatData)
                 #normedfeatures = []
                 #TODO: normalize the data here
                 #for x in features: 
@@ -50,7 +51,7 @@ class Classifier:
                 #print(self.features)
                 #self.book.append(normedfeatures)
         t_dataset = transpose(self.dataset)
-        t_dataset.pop(0)
+        
         self.dataset = normalize(t_dataset)
         print("")
     def Test(self,row,subset_pos):
@@ -81,15 +82,16 @@ def normalize(transposed):
     normedData=[]
     normedList=[]
     for x in transposed:
-        avg = mean(x)
-        std = stdev(x)
-        #if flag:
-        normedData.append(x)
-        #    flag=False
-        #else:
-        for y in x:
-            normedList.append((y - avg)/std)
-        normedData.append(normedList)
-        normedList.clear()
+        
+        if flag:
+            normedData.append(x)
+            flag=False
+        else:
+            avg = mean(x)
+            std = stdev(x)
+            for y in x:
+                normedList.append((y - avg)/std)
+            normedData.append(copy.deepcopy(normedList))
+            normedList.clear()
 
     return transpose(normedData)
