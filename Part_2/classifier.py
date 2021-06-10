@@ -1,8 +1,9 @@
 import math
 import re
+from statistics import *
 class Classifier:
     def __init__(self):
-        self.book = []
+        self.dataset = []
     
     def Train(self): #TODO: filename/type to choose from
         with open(r"Part_2/cs_170_small80.txt") as datafile: #
@@ -35,14 +36,18 @@ class Classifier:
                 line = re.sub(r'(\ \ )+',',',line)
                 line = re.sub(r'(\ \-)+',',-',line)
                 features = line.split(",")
-                normedfeatures = []
+                self.dataset.append(features)
+                #normedfeatures = []
                 #TODO: normalize the data here
-                for x in features: 
-                    tmp = float(x)
+                #for x in features: 
+                 #   tmp = float(x)
                     #print(tmp) #debug
-                    normedfeatures.append(tmp)
+                 #   normedfeatures.append(tmp)
                 #print(self.features)
-                self.book.append(normedfeatures)
+                #self.book.append(normedfeatures)
+        transpose = self.transpose(self.dataset)
+        self.dataset = self.normalize(transpose)
+        print("")
     def Test(self,row,subset_pos):
         current_closest= 9999999999
         current_class=-1
@@ -60,3 +65,26 @@ class Classifier:
                     current_closest=distance
                     current_class=x[0]
         return current_class
+
+    #transposes a list of lists that is even
+    def transpose(self,listslists):
+        return list(map(list, zip(*listslists)))
+
+    #takes a lists of lists that has been trasnposed
+    def normalize(self,transposed):
+        flag=True
+        normedData=[]
+        normedList=[]
+        for x in transposed:
+            avg = mean(x)
+            std = stdev(x)
+            if flag:
+                normedData.append(x)
+                flag=False
+            else:
+                for y in x:
+                    normedList.append((y - avg)/std)
+            normedData.append(normedList)
+            normedList.clear()
+
+        return transpose(normedData)

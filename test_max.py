@@ -17,7 +17,7 @@ subset=(3,5,)
 classify = Classifier()
 #classify.Train()
 classify.Train2()
-for x in classify.book:
+for x in classify.dataset:
     print(x)
 #valid = Validator(classify)
 #print(valid.validate(subset))
