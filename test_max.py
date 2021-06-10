@@ -13,12 +13,13 @@ from Part_2.validation import *
 # test = Validator(classify)
 # for item in test.classifier.book:
 #     print(str(item))
-subset=(3,5)
+subset=(3,5,7)
 classify = Classifier()
 #classify.Train()
-classify.Train2()
-for x in classify.dataset:
-    print(x)
-#valid = Validator(classify)
-#print(valid.validate(subset))
+classify.Train()
+#or x in classify.dataset:
+    #print(x)
+
+valid = Validator(classify)
+print(valid.validate(subset))
 #print(classify.Test(4,(2,4,5,9)))
