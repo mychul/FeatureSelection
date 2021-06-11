@@ -1,13 +1,14 @@
 from greedy import *
 
 class forward(greedy):
-    def __init__(self,node,initial):
+    def __init__(self,node,initial,valid):
         super().__init__(node)
         self.current_max= initial
-        #set state to pool because backwards
+        
         self.cursor.state=()
         #give this node an acc
         self.cursor.acc= initial
+        self.validator = valid
        
         
         

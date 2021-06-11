@@ -1,5 +1,6 @@
 from node import *
-from evaluate import *
+
+from validation import *
 import itertools
 
 class greedy:
@@ -9,7 +10,7 @@ class greedy:
         self.explored = {}
         self.current_max = 0
         self.flag=False
-        self.eval = evaluate()
+        
 
     def accCheck(self,check):
         if self.current_max < check:

@@ -26,6 +26,10 @@ if dataSetChoice.isdigit():
     classy = classifier()
     classy.train(dataSetChoice)
     valid = validator(classy)
+    initialPool=[]
+    for x in range(classy.size):
+        initialPool.append(x)
+    start = node(initialPool,None,classy.size)   
 else:
     invalidChoice = True
 
@@ -38,12 +42,12 @@ if not invalidChoice:
         if algoChoice == 1:
             
             #forward selection
-            forward = forward(valid,classy.defaultRate)
+            forward = forward(start,classy.defaultRate,valid)
             forward.start()
             
         elif algoChoice == 2:
             #backward elimination
-            backward = backward(valid,classy.defaultRate)
+            backward = backward(start,classy.defaultRate,valid)
             backward.start()
             
         else:
@@ -52,12 +56,12 @@ if not invalidChoice:
         algoChoice = getAlgoChoice()
         if algoChoice == 1:
             #forward selection
-            forward = forward(valid,classy.defaultRate)
+            forward = forward(start,classy.defaultRate,valid)
             forward.start()
             
         elif algoChoice == 2:
             #backward elimination
-            backward = backward(valid,classy.defaultRate)
+            backward = backward(start,classy.defaultRate,valid)
             backward.start()
         else:
             invalidChoice = True
@@ -65,12 +69,12 @@ if not invalidChoice:
         algoChoice = getAlgoChoice()
         if algoChoice == 1:
             #forward selection
-            forward = forward(valid,classy.defaultRate)
+            forward = forward(start,classy.defaultRate,valid)
             forward.start()
                
         elif algoChoice == 2:
             #backward elimination
-            backward = backward(valid,classy.defaultRate)
+            backward = backward(start,classy.defaultRate,valid)
             backward.start()
         else:
             invalidChoice = True
@@ -78,12 +82,12 @@ if not invalidChoice:
         algoChoice = getAlgoChoice()
         if algoChoice == 1:
             #forward selection
-            forward = forward(valid,classy.defaultRate)
+            forward = forward(start,classy.defaultRate,valid)
             forward.start()
                
         elif algoChoice == 2:
             #backward elimination
-            backward = backward(valid,classy.defaultRate)
+            backward = backward(start,classy.defaultRate,valid)
             backward.start()
         else:
             invalidChoice = True

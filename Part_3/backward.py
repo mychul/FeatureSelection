@@ -9,7 +9,8 @@ class backward(greedy):
         #set state to pool because backwards
         self.cursor.state=(self.cursor.pool)
         #give this node an acc
-        self.cursor.acc= random.randint(0,100)
+        #TODO
+        #self.cursor.acc= #########################################################
 
     
     def start(self):
