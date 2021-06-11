@@ -31,7 +31,7 @@ class forward(greedy):
                     if not len(self.cursor.state) == 0:
                         for y in self.cursor.state: 
                             if x + 1 != y:
-                                self.spawnChild(x+1)
+                                self.spawnChild(x)
                     else:
                         self.spawnChild(x+1)
                 #evaluates frontier finding best
