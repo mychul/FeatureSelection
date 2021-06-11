@@ -9,8 +9,8 @@ class validator:
     def validate(self,feature_subset):
         #print(self.classifier.book)# sanity check
         #print(len(self.classifier.book))
+        self.counter=0
         for row in self.classifier.book:
-            # TODO: inputs for Test: feature_subset, x
             if self.classifier.test(self.classifier.book.index(row),feature_subset) == row[0]: 
                 self.counter = self.counter + 1
         return self.counter/len(self.classifier.book)

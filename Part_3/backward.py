@@ -5,13 +5,13 @@ from greedy import *
 class backward(greedy):
     def __init__(self,node,initial,valid):
         super().__init__(node)
-        self.current_max= initial
+        self.current_max= 0
         #set state to pool because backwards
         self.cursor.state=(self.cursor.pool)
         #give this node an acc
         #TODO
-        valid.validate(self.cursor.state)
-
+        self.cursor.acc=valid.validate(self.cursor.state)
+        self.validator = valid
     
     def start(self):
         print ("Beginning Search: ")

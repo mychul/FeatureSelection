@@ -9,7 +9,7 @@ class Classifier:
     
     def Train(self):
         #reading data 
-        with open(r"Part_2/cs_170_small80.txt") as datafile: #
+        with open(r"cs_170_small80.txt") as datafile: #
             #line by line
             dataset_lines = datafile.readlines()
             #loop through lines
@@ -41,7 +41,7 @@ class Classifier:
         #print("postbook length = ", len(self.book))
     def Train2(self):
         #reading data 
-        with open(r"Part_2/Large-test-dataset.txt") as datafile: #
+        with open(r"Large-test-dataset.txt") as datafile: #
             #line by line
             dataset_lines = datafile.readlines()
             #loop through lines

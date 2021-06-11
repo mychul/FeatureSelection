@@ -76,7 +76,7 @@ class classifier:
                 #elements of 
                 obj1=x[1]
                 for y in subset_pos:
-                    temp = temp + (obj2[y-1] - obj1[y-1])**2
+                    temp = temp + (obj2[y] - obj1[y])**2
                 distance=math.sqrt(temp)
                 if distance<current_closest:
                     current_closest=distance
