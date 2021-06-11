@@ -8,6 +8,7 @@ class Validator:
 
     def validate(self,feature_subset):
         #print(self.classifier.book)# sanity check
+        #print(len(self.classifier.book))
         for row in self.classifier.book:
             # TODO: inputs for Test: feature_subset, x
             if self.classifier.Test(self.classifier.book.index(row),feature_subset) == row[0]: 

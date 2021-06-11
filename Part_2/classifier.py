@@ -32,11 +32,13 @@ class Classifier:
         t_dataset = self.transpose(self.dataset)
         #normalize data
         self.dataset = self.normalize(t_dataset)
-      
+        #print("dataset length = " , len(self.dataset))
+        #print("prebook length = " , len(self.book))
         for x in self.dataset:
             class_data = x[0]
             x.pop(0)
             self.book.append((class_data,x))
+        #print("postbook length = ", len(self.book))
     def Test(self,row,subset_pos):
         current_closest= 9999999999
         current_class=-1
@@ -79,16 +81,17 @@ class Classifier:
                     total = total +a                
                 avg = total/len(x)
                 # do you want to use another variable aside from y?
-                total=0
+                numerator=0
                 #compute std
                 for b in x:
-                    total = total + ((b-avg))**2
-                total= total/len(x)
+                    numerator = numerator + ((b-avg))**2
+                total= numerator/len(x)
                 std = math.sqrt(total)
                 #normalize
                 for c in x:
                     normedList.append(((c - avg)/std))
                 normedData.append(copy.deepcopy(normedList))
                 normedList.clear()
+            #print(len(normedData))
         print("")
         return self.transpose(normedData)
