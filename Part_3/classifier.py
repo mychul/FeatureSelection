@@ -2,14 +2,22 @@ import math
 import re
 import copy
 from statistics import *
-class Classifier:
+class classifier:
     def __init__(self):
         self.dataset = []
         self.book = []
     
-    def Train(self):
-        #reading data 
-        with open(r"Part_2/cs_170_small80.txt") as datafile: #
+    def train(self,option):
+        #reading data
+        if option==1:
+            loc = r"Part_3/cs_170_small80.txt"
+        elif option ==2:
+            loc = r"Part_3/Large-test-dataset.txt"
+        elif option ==3:
+            loc = r"Part_3/cs_170_small15.txt"
+        elif option ==4: 
+            loc = r"Part_3/cs_170_large15.txt"
+        with open(loc) as datafile: #
             #line by line
             dataset_lines = datafile.readlines()
             #loop through lines
@@ -39,39 +47,8 @@ class Classifier:
             x.pop(0)
             self.book.append((class_data,x))
         #print("postbook length = ", len(self.book))
-    def Train2(self):
-        #reading data 
-        with open(r"Part_2/Large-test-dataset.txt") as datafile: #
-            #line by line
-            dataset_lines = datafile.readlines()
-            #loop through lines
-            for line in dataset_lines:
-                #strip /n
-                line = line.strip()
-                #0th position is the class itself 1st list of features
-                #regex to remove dbl space and space -. getting consistent , seperated values
-                line = re.sub(r'(\ \ )+',',',line)
-                line = re.sub(r'(\ \-)+',',-',line)
-                #split on ,'s
-                splitData = line.split(",")
-                #convert data to floats
-                floatData = []
-                for x in splitData: 
-                    floatData.append(float(x))
-                #append lists of floats onto data resulting in a lists of lists
-                self.dataset.append(floatData)
-        #transpose data
-        t_dataset = self.transpose(self.dataset)
-        #normalize data
-        self.dataset = self.normalize(t_dataset)
-        #print("dataset length = " , len(self.dataset))
-        #print("prebook length = " , len(self.book))
-        for x in self.dataset:
-            class_data = x[0]
-            x.pop(0)
-            self.book.append((class_data,x))
-        #print("postbook length = ", len(self.book))
-    def Test(self,row,subset_pos):
+        
+    def test(self,row,subset_pos):
         current_closest= 9999999999
         current_class=-1
         #elements of test row

@@ -1,6 +1,6 @@
 from classifier import *
 
-class Validator:
+class validator:
     def __init__(self, classify_object):
         self.classifier = classify_object 
         
