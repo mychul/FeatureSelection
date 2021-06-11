@@ -11,13 +11,13 @@ class classifier:
     def train(self,option):
         #reading data
         if option==1:
-            loc = r"Part_3/cs_170_small80.txt"
+            loc = r"cs_170_small80.txt"
         elif option ==2:
-            loc = r"Part_3/Large-test-dataset.txt"
+            loc = r"Large-test-dataset.txt"
         elif option ==3:
-            loc = r"Part_3/cs_170_small15.txt"
+            loc = r"cs_170_small15.txt"
         elif option ==4: 
-            loc = r"Part_3/cs_170_large15.txt"
+            loc = r"cs_170_large15.txt"
         with open(loc) as datafile: #
             #line by line
             dataset_lines = datafile.readlines()
@@ -41,6 +41,7 @@ class classifier:
         self.size=len(self.dataset)
         t_dataset = self.transpose(self.dataset)
         #calculate the default rate
+        count1=0
         for x in t_dataset[0]:
             if x == 1.0:
                 count1=count1+1
@@ -49,7 +50,7 @@ class classifier:
             self.defaultRate=count1/self.size
         else:
             self.defaultRate=count2/self.size
-            
+
         #normalize data
         self.dataset = self.normalize(t_dataset)
         #print("dataset length = " , len(self.dataset))
