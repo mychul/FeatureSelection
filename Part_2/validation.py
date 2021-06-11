@@ -1,9 +1,9 @@
-from Part_2.classifier import *
+from classifier import *
 
 class Validator:
     def __init__(self, classify_object):
         self.classifier = classify_object 
-        self.classifier.Train()
+        
         self.counter = 0
 
     def validate(self,feature_subset):
