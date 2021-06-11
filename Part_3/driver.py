@@ -3,11 +3,6 @@ from forward import *
 from backward import *
 
 print("Welcome to 861126014 (Michael Chiang) & 861199635 (Tinh La) group's Feature Selection Algorithm.\n")
-# numFeatures = input("Please enter total number of features: ")
-# initialPool=[]
-# for x in range(int(numFeatures)):
-#     initialPool.append(x)
-# start = node(initialPool,None, numFeatures)
 print("\n")
 print("(1) - Small Data\n(2) - Large Data\n(3) - Personal Small\n(4) - Personal Large\n")
 dataSetChoice = input("Choice: ")
