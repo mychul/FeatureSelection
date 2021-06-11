@@ -6,7 +6,8 @@ class classifier:
     def __init__(self):
         self.dataset = []
         self.book = []
-    
+        self.defaultRate =0
+        self.size=0
     def train(self,option):
         #reading data
         if option==1:
@@ -37,7 +38,18 @@ class classifier:
                 #append lists of floats onto data resulting in a lists of lists
                 self.dataset.append(floatData)
         #transpose data
+        self.size=len(self.dataset)
         t_dataset = self.transpose(self.dataset)
+        #calculate the default rate
+        for x in t_dataset[0]:
+            if x == 1.0:
+                count1=count1+1
+        count2 = self.size-count1
+        if(count1>count2):
+            self.defaultRate=count1/self.size
+        else:
+            self.defaultRate=count2/self.size
+            
         #normalize data
         self.dataset = self.normalize(t_dataset)
         #print("dataset length = " , len(self.dataset))
