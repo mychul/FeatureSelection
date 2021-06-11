@@ -8,6 +8,7 @@ class classifier:
         self.book = []
         self.defaultRate =0
         self.size=0
+        self.tsize=0
     def train(self,option):
         #reading data
         if option==1:
@@ -40,6 +41,7 @@ class classifier:
         #transpose data
         self.size=len(self.dataset)
         t_dataset = self.transpose(self.dataset)
+        self.tsize = len(t_dataset)
         #calculate the default rate
         count1=0
         for x in t_dataset[0]:

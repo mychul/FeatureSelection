@@ -36,7 +36,7 @@ class forward(greedy):
                         self.spawnChild(x+1)
                 #evaluates frontier finding best
                 
-                bestChild= self.eval.randoList(self.frontier) #(acc,state)
+                bestChild= self.eval.valuation(self.frontier,self.validator) #(acc,state)
                 print("Best Feature set is " + str(list(bestChild[1])) + " with accuracy " + str(bestChild[0]))
                 #check for reduction
                 self.accCheck(bestChild[0])

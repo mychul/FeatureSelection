@@ -27,9 +27,9 @@ if dataSetChoice.isdigit():
     classy.train(dataSetChoice)
     valid = validator(classy)
     initialPool=[]
-    for x in range(classy.size):
+    for x in range(classy.tsize-2):
         initialPool.append(x)
-    start = node(initialPool,None,classy.size)   
+    start = node(initialPool,None,classy.tsize-2)   
 else:
     invalidChoice = True
 
