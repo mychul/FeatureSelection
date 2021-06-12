@@ -30,10 +30,10 @@ class forward(greedy):
                     #temp = x
                     if not len(self.cursor.state) == 0:
                         for y in self.cursor.state: 
-                            if x + 1 != y:
+                            if x != y:
                                 self.spawnChild(x)
                     else:
-                        self.spawnChild(x+1)
+                        self.spawnChild(x)
                 #evaluates frontier finding best
                 
                 bestChild= self.eval.valuation(self.frontier,self.validator) #(acc,state)
