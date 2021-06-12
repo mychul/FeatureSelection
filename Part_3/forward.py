@@ -4,16 +4,11 @@ class forward(greedy):
     def __init__(self,node,initial,valid):
         super().__init__(node)
         self.current_max= initial
-        
         self.cursor.state=()
         #give this node an acc
         self.cursor.acc= initial
         self.validator = valid
        
-        
-        
-        
-
     def start(self):
         print ("Beginning Search: ")
         #print("Using feature(s) " + str(self.cursor.state) + " accuracy is "+ str(self.cursor.acc))
@@ -64,7 +59,6 @@ class forward(greedy):
             temp_list = self.cursor.state +tuple(temp_list)
             temp_list = sorted(temp_list)
             self.frontier.add(tuple(temp_list))
-        #print(temp_list)
-        #exit(0)
-        #self.frontier = itertools.combinations(self.cursor.state,len(self.cursor.state)-1)  # NOTE: DOES NOT WORK
+        #print(temp_list) # debug
+        #exit(0) #debug
        
