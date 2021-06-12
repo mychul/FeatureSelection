@@ -4,7 +4,7 @@ import time
 
 print("Welcome to 861126014 (Michael Chiang) & 861199635 (Tinh La) group's part 2 for feature selection project.\n")
 tic=time.perf_counter()
-subset=(1,3,4,6,9)
+subset=(2,4)
 small_classify = Classifier()
 small_classify.Train()
 valid = Validator(small_classify)
