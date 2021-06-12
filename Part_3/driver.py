@@ -3,6 +3,7 @@ from forward import *
 from backward import *
 from classifier import *
 from validation import *
+import time
 
 invalidChoice = False
 
@@ -32,7 +33,7 @@ if dataSetChoice.isdigit():
     start = node(initialPool,None,classy.tsize-2)   
 else:
     invalidChoice = True
-
+tic=time.perf_counter()
 #initial_acc = random.randint(0,100)
 if not invalidChoice:
     algoChoice = -1
@@ -44,12 +45,16 @@ if not invalidChoice:
             #forward selection
             forward = forward(start,classy.defaultRate,valid)
             forward.start()
+            tock=time.perf_counter()
+            print("Finished processing in "+ str(tock-tic) + " seconds") 
             
         elif algoChoice == 2:
             #backward elimination
             backward = backward(start,classy.defaultRate,valid)
             backward.start()
-            
+            tock=time.perf_counter()
+            print("Finished processing in "+ str(tock-tic) + " seconds") 
+
         else:
             invalidChoice = True
     elif dataSetChoice == 2:
@@ -58,11 +63,16 @@ if not invalidChoice:
             #forward selection
             forward = forward(start,classy.defaultRate,valid)
             forward.start()
+            tock=time.perf_counter()
+            print("Finished processing in "+ str(tock-tic) + " seconds") 
             
         elif algoChoice == 2:
             #backward elimination
             backward = backward(start,classy.defaultRate,valid)
             backward.start()
+            tock=time.perf_counter()
+            print("Finished processing in "+ str(tock-tic) + " seconds") 
+
         else:
             invalidChoice = True
     elif dataSetChoice == 3:
@@ -71,11 +81,16 @@ if not invalidChoice:
             #forward selection
             forward = forward(start,classy.defaultRate,valid)
             forward.start()
+            tock=time.perf_counter()
+            print("Finished processing in "+ str(tock-tic) + " seconds") 
                
         elif algoChoice == 2:
             #backward elimination
             backward = backward(start,classy.defaultRate,valid)
             backward.start()
+            tock=time.perf_counter()
+            print("Finished processing in "+ str(tock-tic) + " seconds") 
+
         else:
             invalidChoice = True
     elif dataSetChoice == 4:
@@ -84,11 +99,16 @@ if not invalidChoice:
             #forward selection
             forward = forward(start,classy.defaultRate,valid)
             forward.start()
+            tock=time.perf_counter()
+            print("Finished processing in "+ str(tock-tic) + " seconds") 
                
         elif algoChoice == 2:
             #backward elimination
             backward = backward(start,classy.defaultRate,valid)
             backward.start()
+            tock=time.perf_counter()
+            print("Finished processing in "+ str(tock-tic) + " seconds") 
+
         else:
             invalidChoice = True
     else:
